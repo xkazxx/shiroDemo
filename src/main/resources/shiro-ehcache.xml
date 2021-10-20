@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+  <diskStore path="${basedir}/target/shiro-EHcache/"/>
+  <cache name="authorizationCache"
+         maxEntriesLocalHeap="1000"
+         maxEntriesLocalDisk="1000"
+         eternal="false"
+         diskSpoolBufferSizeMB="20"
+         timeToIdleSeconds="7200"
+         timeToLiveSeconds="28800"
+         memoryStoreEvictionPolicy="LFU"
+         transactionalMode="off">
+  </cache>
+  <defaultCache
+         maxEntriesLocalHeap="1000"
+         maxEntriesLocalDisk="1000"
+         eternal="false"
+         diskSpoolBufferSizeMB="20"
+         timeToIdleSeconds="7200"
+         timeToLiveSeconds="28800"
+         memoryStoreEvictionPolicy="LFU"
+         transactionalMode="off">
+  </defaultCache>
+</ehcache>
+<!-- 参数配置详解
+cache
+  name	缓存名称，通常为缓存对象的类名
+  maxEntriesLocalHeap	在本地内存中最大缓存项数量，0代表不限制
+  maxEntriesLocalDisk	磁盘中最大对象数，0代表不限制
+  eternal	设置为true，表示对象永远不会过期
+  timeToldleSeconds	对象处于空闲状态的最大时间，0代表不限制，只有当eternal为false时才有效
+  timeToliveSeconds	对象能够存活的最大时间，0代表不限制，只有当eternal为false时才有效
+  memoryStoreEvictionPolicy	内存回收策略(LRU、FIFO、LFU)
+  diskSpoolBufferSizeMB	磁盘缓存区的大小
+ diskStore	配置磁盘存储的，可以存储内存中驱除过来的元素，又可以在系统重启的时候将内存中的缓存信息保存起来，供系统重新启动后使用
+ -->
